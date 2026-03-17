@@ -163,6 +163,16 @@
     ]
   }
   </script>
+
+  <style>
+    table tbody tr.has-thick-bottom td {
+      border-bottom: 3px solid #4a4a4a !important;
+    }
+
+    table thead tr.has-thick-bottom th {
+      border-bottom: 3px solid #4a4a4a !important;
+    }
+  </style>
 </head>
 <body>
 
@@ -203,7 +213,8 @@
             <div class="is-size-5 publication-authors">
               <span class="author-block"><sup>1</sup>Delft University of Technology</span><br>
               <span class="author-block"><sup>2</sup>Perciv AI</span><br>
-              <span class="author-block">IEEE International Conference on Robotics & Automation (ICRA) 2026</span>
+              <br>
+              <span class="author-block">Accepted to IEEE International Conference on Robotics & Automation (ICRA) 2026</span>
             </div>
 
             <div class="column has-text-centered">
@@ -235,6 +246,24 @@
     </div>
   </section>
 
+  <!-- Teaser video-->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <!-- TODO: Replace with your teaser video -->
+        <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
+          <!-- TODO: Add your video file path here -->
+          <source src="static/videos/demo.mp4" type="video/mp4">
+        </video>
+        <!-- TODO: Replace with your video description -->
+        <h2 class="subtitle has-text-centered">
+          Visualization result on the View-of-Delft (VoD) dataset.
+        </h2>
+      </div>
+    </div>
+  </section>
+  <!-- End teaser video -->
+
   <!-- Paper abstract -->
   <section class="section hero is-light">
     <div class="container is-max-desktop">
@@ -251,6 +280,181 @@
     </div>
   </section>
   <!-- End paper abstract -->
+
+
+  <!-- Image with title-->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Model Architecture</h2>
+      <figure class="image is-3by1">
+        <img src="static/images/DRIFT.png" alt="Architecture" loading="lazy"/>
+      </figure>
+      <div class="content has-text-justified">
+        <p>
+          An overview of the DRIFT architecture. The framework features end-to end parallel point and pillar paths, with the point path aggregating fine-grained local features and the pillar path encoding coarse-grained global features. The two paths are tightly coupled with feature sharing blocks that inter-fuse features.
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- End image with title-->
+
+  <!-- Results Table -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
+      <div class="table-container">
+        <table class="table is-striped is-narrow is-fullwidth is-hoverable">
+          <thead>
+            <tr class="has-thick-bottom">
+              <th rowspan="2">Method</th>
+              <th colspan="4">Entire Area</th>
+              <th colspan="4">Driving Corridor</th>
+            </tr>
+            <tr class="has-thick-bottom">
+              <th>mAP ↑</th>
+              <th>Car ↑</th>
+              <th>Ped. ↑</th>
+              <th>Cyc. ↑</th>
+              <th>mAP ↑</th>
+              <th>Car ↑</th>
+              <th>Ped. ↑</th>
+              <th>Cyc. ↑</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>PointPillars</td>
+              <td>45.2</td>
+              <td>37.1</td>
+              <td>35.0</td>
+              <td>63.4</td>
+              <td>67.5</td>
+              <td>70.2</td>
+              <td>47.2</td>
+              <td>85.1</td>
+            </tr>
+            <tr>
+              <td>CenterPoint</td>
+              <td>45.4</td>
+              <td>32.7</td>
+              <td>38.0</td>
+              <td>65.5</td>
+              <td>65.1</td>
+              <td>62.0</td>
+              <td>48.2</td>
+              <td>85.5</td>
+            </tr>
+            <tr>
+              <td>CenterPoint<sup>*</sup></td>
+              <td>47.4</td>
+              <td>39.9</td>
+              <td>37.8</td>
+              <td>64.7</td>
+              <td>67.4</td>
+              <td>71.3</td>
+              <td>47.3</td>
+              <td>83.7</td>
+            </tr>
+            <tr>
+              <td>PillarNeXt</td>
+              <td>42.2</td>
+              <td>30.8</td>
+              <td>33.1</td>
+              <td>62.8</td>
+              <td>63.6</td>
+              <td>66.7</td>
+              <td>39.0</td>
+              <td>85.1</td>
+            </tr>
+            <tr>
+              <td>RadarPillars</td>
+              <td>50.7</td>
+              <td>41.1</td>
+              <td>38.6</td>
+              <td>72.6</td>
+              <td>70.5</td>
+              <td>71.1</td>
+              <td>52.3</td>
+              <td>87.9</td>
+            </tr>
+            <tr>
+              <td>MVFAN (single scan)</td>
+              <td>39.4</td>
+              <td>34.1</td>
+              <td>27.3</td>
+              <td>57.1</td>
+              <td>64.4</td>
+              <td>69.8</td>
+              <td>38.7</td>
+              <td>84.9</td>
+            </tr>
+            <tr>
+              <td>MUFASA</td>
+              <td>50.2</td>
+              <td><b>43.1</b></td>
+              <td>39.0</td>
+              <td>68.7</td>
+              <td>69.4</td>
+              <td>71.9</td>
+              <td>47.4</td>
+              <td>89.0</td>
+            </tr>
+            <tr>
+              <td>SMURF</td>
+              <td>51.0</td>
+              <td>42.3</td>
+              <td>39.1</td>
+              <td>71.5</td>
+              <td>69.7</td>
+              <td>71.7</td>
+              <td>50.5</td>
+              <td>86.9</td>
+            </tr>
+            <tr class="has-thick-bottom">
+              <td>DRIFT (attention) (proposed)</td>
+              <td><b>52.6</b></td>
+              <td>41.4</td>
+              <td><b>42.2</b></td>
+              <td><b>74.3</b></td>
+              <td><b>71.5</b></td>
+              <td><b>72.4</b></td>
+              <td><b>52.9</b></td>
+              <td><b>89.3</b></td>
+            </tr>
+            <tr>
+              <td>CenterPoint (pre-trained)<sup>*</sup></td>
+              <td>47.7</td>
+              <td>39.7</td>
+              <td>35.5</td>
+              <td>67.9</td>
+              <td>66.4</td>
+              <td>70.3</td>
+              <td>45.7</td>
+              <td>83.1</td>
+            </tr>
+            <tr>
+              <td>DRIFT (attention, pre-trained) (proposed)</td>
+              <td><b>53.1</b></td>
+              <td><b>41.2</b></td>
+              <td><b>43.6</b></td>
+              <td><b>74.5</b></td>
+              <td><b>72.4</b></td>
+              <td><b>77.0</b></td>
+              <td><b>52.5</b></td>
+              <td><b>87.8</b></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+        <p><sup>*</sup> re-implemented</p>
+        <div class="content has-text-justified">
+          <p> </p>
+          <p>
+            Comparison of AP results on VoD validation set. DRIFT uses cross-attention feature sharing. Pre-training is done with the perciv-scenes-2 dataset. The values are in %. The best results of each configuration (pre-trained and not pre-trained) are bold.
+          </p>
+    </div>
+  </section>
+  <!-- End Results Table -->
 
   <!-- BibTex citation -->
   <!-- <section class="section" id="BibTeX">
@@ -272,6 +476,10 @@
     </div>
   </section> -->
   <!-- End BibTex citation -->
+
+
+
+
 
   <footer class="footer">
     <div class="container">
